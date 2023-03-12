@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { setDataAction } from '../utils'
+import { setDataAction, setFirstDataAction } from '../utils'
 import { useState } from 'react'
 import Loading from '../components/Loading'
 import { Link } from 'react-router-dom';
@@ -14,11 +14,11 @@ export default function Home() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const data = useSelector((state) => state.data.data);
+    const first = useSelector((state) => state.data.first);
 
     const clickHandler = (item) => {
         return () => {
             setSelectedBlogAction(item);
-            console.log(item);
         }
     }
     useEffect(() => {
@@ -36,9 +36,12 @@ export default function Home() {
             setLoading(false);
           }
         }
-    
-        fetchData();
-      }, []);
+        if(first){
+          fetchData();
+          setFirstDataAction(false);
+        }
+        setLoading(false);
+      },[]);
 
       
     return (
