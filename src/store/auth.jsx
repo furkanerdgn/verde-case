@@ -5,6 +5,7 @@ const initialState = {
     userId: 1,
     data: [],
     selectedBlog: null,
+    first: true,
 
 };
 
@@ -43,13 +44,16 @@ const data = createSlice({
                 }
                 return item;
             });
+        },
+        setFirstData(state, action) {
+            state.first = action.payload;
         }
 
 
     }
 });
 
-export const { setData,setSelectedBlog,setAddData,setDeleteData,setUpdateData } = data.actions;
+export const { setData,setSelectedBlog,setAddData,setDeleteData,setUpdateData,setFirstData } = data.actions;
 export const { setUserId } = auth.actions;
 //login actions
  const authReducer = auth.reducer;

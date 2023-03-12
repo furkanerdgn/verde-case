@@ -46,6 +46,7 @@ export default function Post() {
 
 
     setUpdateDataAction(dataObj)
+    navigate('/posts');
     }
 
     const deleteHandler = () => {
@@ -57,7 +58,7 @@ export default function Post() {
         
         
         setDeleteDataAction(blog.id);
-        console.log(blog.length)
+        navigate('/posts');
     }
 
     const postHandler = async() => {
@@ -80,13 +81,13 @@ export default function Post() {
             .then((json) => console.log(json));
             
         setAddDataAction(dataObj);
-        //navigate('/posts');
+        navigate('/posts');
     }
 
 
     return (
         
-    <div className="w-1/2">
+    <div className="md:w-1/2">
         <div className="w-full">
         <div className="w-full flex justify-between">
         <div className=" flex gap-5 items-center">

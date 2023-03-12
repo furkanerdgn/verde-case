@@ -5,7 +5,7 @@ import {setSelectedBlog} from "./store/auth";
 import {setAddData} from "./store/auth";
 import {setDeleteData} from "./store/auth";
 import {setUpdateData} from "./store/auth";
-
+import { setFirstData } from "./store/auth";
 
 export const setUserIdAction = (userId) => {
     store.dispatch(setUserId(userId));
@@ -25,5 +25,8 @@ export const setDeleteDataAction = (id) => {
 }
 export const setUpdateDataAction = (data) => {
     store.dispatch(setUpdateData(data));
+}
+export const setFirstDataAction = (first) => {
+    store.dispatch(setFirstData(first));
 }
 
